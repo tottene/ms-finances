@@ -1,9 +1,13 @@
 package com.ctottene.infrastructure.persistence.entity;
 
 import com.ctottene.infrastructure.persistence.common.AuditMetadataEntity;
+import com.ctottene.infrastructure.persistence.entity.CategoryEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.FetchType;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -30,6 +34,10 @@ public abstract class TransactionEntity extends AuditMetadataEntity {
 
     @Column(name = "paid_at")
     private Instant paidAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private CategoryEntity category;
 
     public UUID getId() {
         return id;
@@ -77,5 +85,13 @@ public abstract class TransactionEntity extends AuditMetadataEntity {
 
     public void setPaidAt(Instant paidAt) {
         this.paidAt = paidAt;
+    }
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
     }
 }

@@ -2,7 +2,9 @@ package com.ctottene.infrastructure.persistence.entity;
 
 import com.ctottene.domain.model.Category;
 import com.ctottene.domain.model.Income;
+import com.ctottene.domain.model.Expense;
 import com.ctottene.infrastructure.persistence.common.AuditMetadataEntity;
+import com.ctottene.infrastructure.persistence.entity.ExpenseEntity;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -24,6 +26,9 @@ public class CategoryEntity extends AuditMetadataEntity {
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private java.util.List<IncomeEntity> incomes;
+
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    private java.util.List<ExpenseEntity> expenses;
 
     public CategoryEntity() {}
 
@@ -59,6 +64,13 @@ public class CategoryEntity extends AuditMetadataEntity {
             }
             category.setIncomes(list);
         }
+        if (expenses != null) {
+            List<Expense> expList = new ArrayList<>();
+            for (ExpenseEntity expenseEntity : expenses) {
+                expList.add(expenseEntity.toModel());
+            }
+            category.setExpenses(expList);
+        }
         return category;
     }
 
@@ -92,5 +104,13 @@ public class CategoryEntity extends AuditMetadataEntity {
 
     public void setIncomes(java.util.List<IncomeEntity> incomes) {
         this.incomes = incomes;
+    }
+
+    public java.util.List<ExpenseEntity> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(java.util.List<ExpenseEntity> expenses) {
+        this.expenses = expenses;
     }
 }

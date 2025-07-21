@@ -3,6 +3,7 @@ package com.ctottene.infrastructure.persistence.entity;
 import com.ctottene.domain.model.Expense;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import com.ctottene.infrastructure.persistence.entity.CategoryEntity;
 
 @Entity
 @Table(name = "expenses")
@@ -24,6 +25,13 @@ public class ExpenseEntity extends TransactionEntity {
         entity.setUpdatedAt(expense.getUpdatedAt());
         entity.setUpdatedBy(expense.getUpdatedBy());
         entity.setTenantId(expense.getTenantId());
+        entity.setUserTimeZone(expense.getUserTimeZone());
+
+        if (expense.getCategory() != null) {
+            CategoryEntity cat = new CategoryEntity();
+            cat.setId(expense.getCategory().getId());
+            entity.setCategory(cat);
+        }
 
         return entity;
     }
@@ -42,6 +50,10 @@ public class ExpenseEntity extends TransactionEntity {
         expense.setUpdatedAt(getUpdatedAt());
         expense.setUpdatedBy(getUpdatedBy());
         expense.setTenantId(getTenantId());
+
+        if (getCategory() != null) {
+            expense.setCategory(getCategory().toModel());
+        }
 
         return expense;
     }

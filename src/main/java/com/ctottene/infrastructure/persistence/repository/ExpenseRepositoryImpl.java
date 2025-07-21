@@ -4,6 +4,7 @@ import com.ctottene.domain.gateway.ExpenseRepository;
 import com.ctottene.domain.model.Expense;
 import com.ctottene.infrastructure.persistence.JpaExpenseEntityRepository;
 import com.ctottene.infrastructure.persistence.entity.ExpenseEntity;
+import com.ctottene.infrastructure.persistence.entity.CategoryEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -56,6 +57,11 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
         entity.setCreatedBy(expense.getCreatedBy());
         entity.setTenantId(expense.getTenantId());
         entity.setUserTimeZone(expense.getUserTimeZone());
+        if (expense.getCategory() != null) {
+            CategoryEntity cat = new CategoryEntity();
+            cat.setId(expense.getCategory().getId());
+            entity.setCategory(cat);
+        }
         return entity;
     }
 }
