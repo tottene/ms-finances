@@ -1,7 +1,7 @@
-package com.ctottene.application.usecase.impl;
+package com.ctottene.application.usecase.category.impl;
 
-import com.ctottene.application.usecase.ListCategoryUseCase;
-import com.ctottene.application.usecase.dto.CategoryOutput;
+import com.ctottene.application.usecase.category.ListCategoryUseCase;
+import com.ctottene.application.usecase.category.dto.CategoryOutput;
 import com.ctottene.domain.gateway.CategoryRepository;
 import com.ctottene.infrastructure.security.AuthenticatedUser;
 import org.springframework.stereotype.Service;

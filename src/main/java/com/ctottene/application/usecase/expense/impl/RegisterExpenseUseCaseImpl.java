@@ -1,8 +1,8 @@
-package com.ctottene.application.usecase.impl;
+package com.ctottene.application.usecase.expense.impl;
 
-import com.ctottene.application.usecase.RegisterExpenseUseCase;
-import com.ctottene.application.usecase.dto.RegisterExpenseInput;
-import com.ctottene.application.usecase.dto.RegisterExpenseOutput;
+import com.ctottene.application.usecase.expense.RegisterExpenseUseCase;
+import com.ctottene.application.usecase.expense.dto.RegisterExpenseInput;
+import com.ctottene.application.usecase.expense.dto.RegisterExpenseOutput;
 import com.ctottene.domain.gateway.ExpenseRepository;
 import com.ctottene.domain.model.Expense;
 import com.ctottene.infrastructure.security.AuthenticatedUser;

@@ -1,8 +1,8 @@
-package com.ctottene.application.usecase.impl;
+package com.ctottene.application.usecase.income.impl;
 
-import com.ctottene.application.usecase.RegisterIncomeUseCase;
-import com.ctottene.application.usecase.dto.RegisterIncomeInput;
-import com.ctottene.application.usecase.dto.RegisterIncomeOutput;
+import com.ctottene.application.usecase.income.RegisterIncomeUseCase;
+import com.ctottene.application.usecase.income.dto.RegisterIncomeInput;
+import com.ctottene.application.usecase.income.dto.RegisterIncomeOutput;
 import com.ctottene.domain.gateway.IncomeRepository;
 import com.ctottene.domain.model.Income;
 import com.ctottene.domain.model.Category;

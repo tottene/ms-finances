@@ -1,8 +1,8 @@
 package com.ctottene.app.controller;
 
-import com.ctottene.application.usecase.LoginUseCase;
-import com.ctottene.application.usecase.dto.LoginInput;
-import com.ctottene.application.usecase.dto.LoginOutput;
+import com.ctottene.application.usecase.auth.LoginUseCase;
+import com.ctottene.application.usecase.auth.dto.LoginInput;
+import com.ctottene.application.usecase.auth.dto.LoginOutput;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

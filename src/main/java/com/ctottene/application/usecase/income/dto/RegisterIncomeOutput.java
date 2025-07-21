@@ -1,4 +1,4 @@
-package com.ctottene.application.usecase.dto;
+package com.ctottene.application.usecase.income.dto;
 
 import java.util.UUID;
 

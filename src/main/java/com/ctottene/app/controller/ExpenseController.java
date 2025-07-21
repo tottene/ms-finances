@@ -1,8 +1,8 @@
 package com.ctottene.app.controller;
 
-import com.ctottene.application.usecase.RegisterExpenseUseCase;
-import com.ctottene.application.usecase.dto.RegisterExpenseInput;
-import com.ctottene.application.usecase.dto.RegisterExpenseOutput;
+import com.ctottene.application.usecase.expense.RegisterExpenseUseCase;
+import com.ctottene.application.usecase.expense.dto.RegisterExpenseInput;
+import com.ctottene.application.usecase.expense.dto.RegisterExpenseOutput;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,6 +1,6 @@
-package com.ctottene.application.usecase.impl;
+package com.ctottene.application.usecase.category.impl;
 
-import com.ctottene.application.usecase.DeleteCategoryUseCase;
+import com.ctottene.application.usecase.category.DeleteCategoryUseCase;
 import com.ctottene.domain.gateway.CategoryRepository;
 import org.springframework.stereotype.Service;
 

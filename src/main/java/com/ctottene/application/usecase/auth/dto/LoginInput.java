@@ -1,4 +1,4 @@
-package com.ctottene.application.usecase.dto;
+package com.ctottene.application.usecase.auth.dto;
 
 public class LoginInput {
     private String email;

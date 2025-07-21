@@ -1,8 +1,8 @@
 package com.ctottene.app.controller;
 
-import com.ctottene.application.usecase.RegisterIncomeUseCase;
-import com.ctottene.application.usecase.dto.RegisterIncomeInput;
-import com.ctottene.application.usecase.dto.RegisterIncomeOutput;
+import com.ctottene.application.usecase.income.RegisterIncomeUseCase;
+import com.ctottene.application.usecase.income.dto.RegisterIncomeInput;
+import com.ctottene.application.usecase.income.dto.RegisterIncomeOutput;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

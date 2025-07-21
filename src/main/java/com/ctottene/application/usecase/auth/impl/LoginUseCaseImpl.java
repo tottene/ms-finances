@@ -1,9 +1,9 @@
-package com.ctottene.application.usecase.impl;
+package com.ctottene.application.usecase.auth.impl;
 
-import com.ctottene.application.usecase.LoginUseCase;
+import com.ctottene.application.usecase.auth.LoginUseCase;
 import com.ctottene.domain.gateway.UserRepository;
-import com.ctottene.application.usecase.dto.LoginInput;
-import com.ctottene.application.usecase.dto.LoginOutput;
+import com.ctottene.application.usecase.auth.dto.LoginInput;
+import com.ctottene.application.usecase.auth.dto.LoginOutput;
 import com.ctottene.domain.model.User;
 import com.ctottene.infrastructure.security.JwtService;
 import org.springframework.security.authentication.BadCredentialsException;

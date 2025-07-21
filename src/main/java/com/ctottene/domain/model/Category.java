@@ -3,10 +3,6 @@ package com.ctottene.domain.model;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Category entity used to group transactions.
- */
-
 public class Category extends AuditMetadata {
     private UUID id;
     private String name;

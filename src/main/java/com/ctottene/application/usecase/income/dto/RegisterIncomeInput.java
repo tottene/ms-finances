@@ -1,11 +1,12 @@
-package com.ctottene.application.usecase.dto;
+package com.ctottene.application.usecase.income.dto;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 
-public record RegisterExpenseInput(
+public record RegisterIncomeInput(
         String description,
         BigDecimal amount,
         Instant originalDate,
-        Instant dueDate
+        Instant dueDate,
+        java.util.UUID categoryId
 ) {}

@@ -1,7 +1,7 @@
-package com.ctottene.application.usecase.impl;
+package com.ctottene.application.usecase.category.impl;
 
-import com.ctottene.application.usecase.UpdateCategoryUseCase;
-import com.ctottene.application.usecase.dto.UpdateCategoryInput;
+import com.ctottene.application.usecase.category.UpdateCategoryUseCase;
+import com.ctottene.application.usecase.category.dto.UpdateCategoryInput;
 import com.ctottene.domain.gateway.CategoryRepository;
 import com.ctottene.domain.model.Category;
 import com.ctottene.infrastructure.security.AuthenticatedUser;

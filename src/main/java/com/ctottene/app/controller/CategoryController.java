@@ -1,10 +1,13 @@
 package com.ctottene.app.controller;
 
-import com.ctottene.application.usecase.DeleteCategoryUseCase;
-import com.ctottene.application.usecase.ListCategoryUseCase;
-import com.ctottene.application.usecase.RegisterCategoryUseCase;
-import com.ctottene.application.usecase.UpdateCategoryUseCase;
-import com.ctottene.application.usecase.dto.*;
+import com.ctottene.application.usecase.category.DeleteCategoryUseCase;
+import com.ctottene.application.usecase.category.ListCategoryUseCase;
+import com.ctottene.application.usecase.category.RegisterCategoryUseCase;
+import com.ctottene.application.usecase.category.UpdateCategoryUseCase;
+import com.ctottene.application.usecase.category.dto.CategoryOutput;
+import com.ctottene.application.usecase.category.dto.RegisterCategoryInput;
+import com.ctottene.application.usecase.category.dto.RegisterCategoryOutput;
+import com.ctottene.application.usecase.category.dto.UpdateCategoryInput;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
