@@ -1,12 +1,22 @@
 package com.ctottene.infrastructure.persistence.entity;
 
 import com.ctottene.domain.model.Income;
+import com.ctottene.infrastructure.persistence.entity.CategoryEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.FetchType;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "incomes")
 public class IncomeEntity extends TransactionEntity {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private CategoryEntity category;
 
     public IncomeEntity() {}
 
@@ -26,6 +36,12 @@ public class IncomeEntity extends TransactionEntity {
         entity.setTenantId(income.getTenantId());
         entity.setUserTimeZone(income.getUserTimeZone());
 
+        if (income.getCategory() != null) {
+            CategoryEntity cat = new CategoryEntity();
+            cat.setId(income.getCategory().getId());
+            entity.setCategory(cat);
+        }
+
         return entity;
     }
 
@@ -44,6 +60,18 @@ public class IncomeEntity extends TransactionEntity {
         income.setUpdatedBy(getUpdatedBy());
         income.setTenantId(getTenantId());
 
+        if (category != null) {
+            income.setCategory(category.toModel());
+        }
+
         return income;
+    }
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
     }
 }

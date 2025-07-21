@@ -4,6 +4,7 @@ import com.ctottene.domain.gateway.IncomeRepository;
 import com.ctottene.domain.model.Income;
 import com.ctottene.infrastructure.persistence.JpaIncomeEntityRepository;
 import com.ctottene.infrastructure.persistence.entity.IncomeEntity;
+import com.ctottene.infrastructure.persistence.entity.CategoryEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -56,6 +57,11 @@ public class IncomeRepositoryImpl implements IncomeRepository {
         entity.setCreatedBy(income.getCreatedBy());
         entity.setTenantId(income.getTenantId());
         entity.setUserTimeZone(income.getUserTimeZone());
+        if (income.getCategory() != null) {
+            CategoryEntity cat = new CategoryEntity();
+            cat.setId(income.getCategory().getId());
+            entity.setCategory(cat);
+        }
         return entity;
     }
 }

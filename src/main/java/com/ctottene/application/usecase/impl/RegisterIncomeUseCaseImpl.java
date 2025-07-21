@@ -5,6 +5,7 @@ import com.ctottene.application.usecase.dto.RegisterIncomeInput;
 import com.ctottene.application.usecase.dto.RegisterIncomeOutput;
 import com.ctottene.domain.gateway.IncomeRepository;
 import com.ctottene.domain.model.Income;
+import com.ctottene.domain.model.Category;
 import com.ctottene.infrastructure.security.AuthenticatedUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,6 +39,11 @@ public class RegisterIncomeUseCaseImpl implements RegisterIncomeUseCase {
         income.setAmount(input.amount());
         income.setOriginalDate(input.originalDate());
         income.setDueDate(input.dueDate());
+        if (input.categoryId() != null) {
+            Category category = new Category();
+            category.setId(input.categoryId());
+            income.setCategory(category);
+        }
         income.setUserTimeZone(authenticatedUser.getTimezone());
 
         income.setCreatedAt(Instant.now());
