@@ -1,5 +1,6 @@
 package com.ctottene.domain.model;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -10,6 +11,7 @@ public class Category extends AuditMetadata {
     private UUID id;
     private String name;
     private String description;
+    private List<Income> incomes;
 
     public UUID getId() {
         return id;
@@ -33,5 +35,13 @@ public class Category extends AuditMetadata {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Income> getIncomes() {
+        return incomes;
+    }
+
+    public void setIncomes(List<Income> incomes) {
+        this.incomes = incomes;
     }
 }

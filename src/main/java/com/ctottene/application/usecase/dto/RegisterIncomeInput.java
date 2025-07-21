@@ -7,5 +7,6 @@ public record RegisterIncomeInput(
         String description,
         BigDecimal amount,
         Instant originalDate,
-        Instant dueDate
+        Instant dueDate,
+        java.util.UUID categoryId
 ) {}

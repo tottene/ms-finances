@@ -5,6 +5,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.FetchType;
+import com.ctottene.infrastructure.persistence.entity.IncomeEntity;
 
 import java.util.UUID;
 
@@ -20,6 +23,9 @@ public class CategoryEntity extends com.ctottene.infrastructure.persistence.comm
     private String name;
 
     private String description;
+
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    private java.util.List<IncomeEntity> incomes;
 
     public CategoryEntity() {}
 
@@ -48,6 +54,13 @@ public class CategoryEntity extends com.ctottene.infrastructure.persistence.comm
         category.setUpdatedBy(getUpdatedBy());
         category.setTenantId(getTenantId());
         category.setUserTimeZone(getUserTimeZone());
+        if (incomes != null) {
+            java.util.List<com.ctottene.domain.model.Income> list = new java.util.ArrayList<>();
+            for (IncomeEntity incomeEntity : incomes) {
+                list.add(incomeEntity.toModel());
+            }
+            category.setIncomes(list);
+        }
         return category;
     }
 
@@ -73,5 +86,13 @@ public class CategoryEntity extends com.ctottene.infrastructure.persistence.comm
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public java.util.List<IncomeEntity> getIncomes() {
+        return incomes;
+    }
+
+    public void setIncomes(java.util.List<IncomeEntity> incomes) {
+        this.incomes = incomes;
     }
 }
