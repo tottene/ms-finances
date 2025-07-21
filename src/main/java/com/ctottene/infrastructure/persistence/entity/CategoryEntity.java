@@ -1,15 +1,12 @@
 package com.ctottene.infrastructure.persistence.entity;
 
 import com.ctottene.domain.model.Category;
+import com.ctottene.domain.model.Income;
 import com.ctottene.infrastructure.persistence.common.AuditMetadataEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.FetchType;
-import com.ctottene.infrastructure.persistence.entity.IncomeEntity;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -56,7 +53,7 @@ public class CategoryEntity extends AuditMetadataEntity {
         category.setTenantId(getTenantId());
         category.setUserTimeZone(getUserTimeZone());
         if (incomes != null) {
-            java.util.List<com.ctottene.domain.model.Income> list = new java.util.ArrayList<>();
+            List<Income> list = new ArrayList<>();
             for (IncomeEntity incomeEntity : incomes) {
                 list.add(incomeEntity.toModel());
             }
