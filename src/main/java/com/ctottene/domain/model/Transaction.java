@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
+
 public abstract class Transaction extends AuditMetadata {
     protected UUID id;
     protected String description;
@@ -13,6 +14,8 @@ public abstract class Transaction extends AuditMetadata {
     protected Instant originalDate;
     protected Instant dueDate;
     protected Instant paidAt;
+
+    protected Category category;
 
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }
@@ -34,4 +37,7 @@ public abstract class Transaction extends AuditMetadata {
 
     public Instant getPaidAt() { return paidAt; }
     public void setPaidAt(Instant paidAt) { this.paidAt = paidAt; }
+
+    public Category getCategory() { return category; }
+    public void setCategory(Category category) { this.category = category; }
 }

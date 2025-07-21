@@ -5,6 +5,7 @@ import com.ctottene.application.usecase.expense.dto.RegisterExpenseInput;
 import com.ctottene.application.usecase.expense.dto.RegisterExpenseOutput;
 import com.ctottene.domain.gateway.ExpenseRepository;
 import com.ctottene.domain.model.Expense;
+import com.ctottene.domain.model.Category;
 import com.ctottene.infrastructure.security.AuthenticatedUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,24 +33,29 @@ public class RegisterExpenseUseCaseImpl implements RegisterExpenseUseCase {
     @Override
     public RegisterExpenseOutput execute(RegisterExpenseInput input) {
 
-        Expense income = new Expense();
-        income.setId(UUID.randomUUID());
-        income.setDescription(input.description());
-        income.setAmount(input.amount());
-        income.setOriginalDate(input.originalDate());
-        income.setDueDate(input.dueDate());
-        income.setUserTimeZone(authenticatedUser.getTimezone());
+        Expense expense = new Expense();
+        expense.setId(UUID.randomUUID());
+        expense.setDescription(input.description());
+        expense.setAmount(input.amount());
+        expense.setOriginalDate(input.originalDate());
+        expense.setDueDate(input.dueDate());
+        if (input.categoryId() != null) {
+            Category category = new Category();
+            category.setId(input.categoryId());
+            expense.setCategory(category);
+        }
+        expense.setUserTimeZone(authenticatedUser.getTimezone());
 
-        income.setCreatedAt(Instant.now());
-        income.setUpdatedAt(Instant.now());
-        income.setCreatedBy(authenticatedUser.getId());
-        income.setTenantId(authenticatedUser.getTenantId());
-        income.setUserTimeZone(authenticatedUser.getTimezone());
+        expense.setCreatedAt(Instant.now());
+        expense.setUpdatedAt(Instant.now());
+        expense.setCreatedBy(authenticatedUser.getId());
+        expense.setTenantId(authenticatedUser.getTenantId());
+        expense.setUserTimeZone(authenticatedUser.getTimezone());
 
-        log.info("Saving Expense: {}", income);
-        Expense saved = expenseRepository.save(income);
+        log.info("Saving Expense: {}", expense);
+        Expense saved = expenseRepository.save(expense);
         log.info("Saved successfully: {}", saved.getId());
 
-        return new RegisterExpenseOutput(income.getId());
+        return new RegisterExpenseOutput(expense.getId());
     }
 }

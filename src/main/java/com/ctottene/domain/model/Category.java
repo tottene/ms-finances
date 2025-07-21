@@ -8,6 +8,7 @@ public class Category extends AuditMetadata {
     private String name;
     private String description;
     private List<Income> incomes;
+    private List<Expense> expenses;
 
     public UUID getId() {
         return id;
@@ -39,5 +40,13 @@ public class Category extends AuditMetadata {
 
     public void setIncomes(List<Income> incomes) {
         this.incomes = incomes;
+    }
+
+    public List<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public void setExpenses(List<Expense> expenses) {
+        this.expenses = expenses;
     }
 }

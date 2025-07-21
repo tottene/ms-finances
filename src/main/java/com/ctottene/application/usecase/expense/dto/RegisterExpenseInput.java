@@ -7,5 +7,6 @@ public record RegisterExpenseInput(
         String description,
         BigDecimal amount,
         Instant originalDate,
-        Instant dueDate
+        Instant dueDate,
+        java.util.UUID categoryId
 ) {}
