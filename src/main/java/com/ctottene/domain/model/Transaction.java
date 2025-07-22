@@ -10,6 +10,11 @@ public abstract class Transaction extends AuditMetadata {
     protected String description;
     protected BigDecimal amount;
 
+    protected BigDecimal originalAmount;
+    protected BigDecimal interest;
+    protected BigDecimal fine;
+    protected BigDecimal discount;
+
     protected Instant createdAt;
     protected Instant originalDate;
     protected Instant dueDate;
@@ -25,6 +30,18 @@ public abstract class Transaction extends AuditMetadata {
 
     public BigDecimal getAmount() { return amount; }
     public void setAmount(BigDecimal amount) { this.amount = amount; }
+
+    public BigDecimal getOriginalAmount() { return originalAmount; }
+    public void setOriginalAmount(BigDecimal originalAmount) { this.originalAmount = originalAmount; }
+
+    public BigDecimal getInterest() { return interest; }
+    public void setInterest(BigDecimal interest) { this.interest = interest; }
+
+    public BigDecimal getFine() { return fine; }
+    public void setFine(BigDecimal fine) { this.fine = fine; }
+
+    public BigDecimal getDiscount() { return discount; }
+    public void setDiscount(BigDecimal discount) { this.discount = discount; }
 
     public Instant getCreatedAt() { return createdAt; }
     public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }

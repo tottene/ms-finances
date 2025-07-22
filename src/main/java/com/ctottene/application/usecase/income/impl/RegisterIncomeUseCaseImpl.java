@@ -36,7 +36,19 @@ public class RegisterIncomeUseCaseImpl implements RegisterIncomeUseCase {
         Income income = new Income();
         income.setId(UUID.randomUUID());
         income.setDescription(input.description());
-        income.setAmount(input.amount());
+
+        java.math.BigDecimal originalAmount = input.originalAmount() != null ? input.originalAmount() : java.math.BigDecimal.ZERO;
+        java.math.BigDecimal interest = input.interest() != null ? input.interest() : java.math.BigDecimal.ZERO;
+        java.math.BigDecimal fine = input.fine() != null ? input.fine() : java.math.BigDecimal.ZERO;
+        java.math.BigDecimal discount = input.discount() != null ? input.discount() : java.math.BigDecimal.ZERO;
+
+        java.math.BigDecimal amount = originalAmount.add(interest).add(fine).subtract(discount);
+
+        income.setOriginalAmount(originalAmount);
+        income.setInterest(interest);
+        income.setFine(fine);
+        income.setDiscount(discount);
+        income.setAmount(amount);
         income.setOriginalDate(input.originalDate());
         income.setDueDate(input.dueDate());
         if (input.categoryId() != null) {
