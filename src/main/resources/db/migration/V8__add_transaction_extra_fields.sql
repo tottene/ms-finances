@@ -1,0 +1,10 @@
+ALTER TABLE incomes ADD COLUMN original_amount NUMERIC(19, 2);
+ALTER TABLE incomes ADD COLUMN interest NUMERIC(19, 2);
+ALTER TABLE incomes ADD COLUMN fine NUMERIC(19, 2);
+ALTER TABLE incomes ADD COLUMN discount NUMERIC(19, 2);
+
+ALTER TABLE expenses ADD COLUMN original_amount NUMERIC(19, 2);
+ALTER TABLE expenses ADD COLUMN interest NUMERIC(19, 2);
+ALTER TABLE expenses ADD COLUMN fine NUMERIC(19, 2);
+ALTER TABLE expenses ADD COLUMN discount NUMERIC(19, 2);
+
