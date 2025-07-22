@@ -16,6 +16,10 @@ public class ExpenseEntity extends TransactionEntity {
         entity.setId(expense.getId());
         entity.setDescription(expense.getDescription());
         entity.setAmount(expense.getAmount());
+        entity.setOriginalAmount(expense.getOriginalAmount());
+        entity.setInterest(expense.getInterest());
+        entity.setFine(expense.getFine());
+        entity.setDiscount(expense.getDiscount());
         entity.setOriginalDate(expense.getOriginalDate());
         entity.setDueDate(expense.getDueDate());
         entity.setPaidAt(expense.getPaidAt());
@@ -41,6 +45,10 @@ public class ExpenseEntity extends TransactionEntity {
         expense.setId(getId());
         expense.setDescription(getDescription());
         expense.setAmount(getAmount());
+        expense.setOriginalAmount(getOriginalAmount());
+        expense.setInterest(getInterest());
+        expense.setFine(getFine());
+        expense.setDiscount(getDiscount());
         expense.setOriginalDate(getOriginalDate());
         expense.setDueDate(getDueDate());
         expense.setPaidAt(getPaidAt());

@@ -36,7 +36,19 @@ public class RegisterExpenseUseCaseImpl implements RegisterExpenseUseCase {
         Expense expense = new Expense();
         expense.setId(UUID.randomUUID());
         expense.setDescription(input.description());
-        expense.setAmount(input.amount());
+
+        java.math.BigDecimal originalAmount = input.originalAmount() != null ? input.originalAmount() : java.math.BigDecimal.ZERO;
+        java.math.BigDecimal interest = input.interest() != null ? input.interest() : java.math.BigDecimal.ZERO;
+        java.math.BigDecimal fine = input.fine() != null ? input.fine() : java.math.BigDecimal.ZERO;
+        java.math.BigDecimal discount = input.discount() != null ? input.discount() : java.math.BigDecimal.ZERO;
+
+        java.math.BigDecimal amount = originalAmount.add(interest).add(fine).subtract(discount);
+
+        expense.setOriginalAmount(originalAmount);
+        expense.setInterest(interest);
+        expense.setFine(fine);
+        expense.setDiscount(discount);
+        expense.setAmount(amount);
         expense.setOriginalDate(input.originalDate());
         expense.setDueDate(input.dueDate());
         if (input.categoryId() != null) {

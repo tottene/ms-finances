@@ -1,6 +1,10 @@
 CREATE TABLE incomes (
     id UUID PRIMARY KEY,
     amount NUMERIC(19, 2) NOT NULL,
+    original_amount NUMERIC(19,2) NOT NULL DEFAULT 0,
+    interest NUMERIC(19,2) NOT NULL DEFAULT 0,
+    fine NUMERIC(19,2) NOT NULL DEFAULT 0,
+    discount NUMERIC(19,2) NOT NULL DEFAULT 0,
     description TEXT,
     original_date TIMESTAMP,
     due_date TIMESTAMP,
