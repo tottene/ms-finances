@@ -19,6 +19,10 @@ public class IncomeEntity extends TransactionEntity {
         entity.setId(income.getId());
         entity.setDescription(income.getDescription());
         entity.setAmount(income.getAmount());
+        entity.setOriginalAmount(income.getOriginalAmount());
+        entity.setInterest(income.getInterest());
+        entity.setFine(income.getFine());
+        entity.setDiscount(income.getDiscount());
         entity.setOriginalDate(income.getOriginalDate());
         entity.setDueDate(income.getDueDate());
         entity.setPaidAt(income.getPaidAt());
@@ -44,6 +48,10 @@ public class IncomeEntity extends TransactionEntity {
         income.setId(getId());
         income.setDescription(getDescription());
         income.setAmount(getAmount());
+        income.setOriginalAmount(getOriginalAmount());
+        income.setInterest(getInterest());
+        income.setFine(getFine());
+        income.setDiscount(getDiscount());
         income.setOriginalDate(getOriginalDate());
         income.setDueDate(getDueDate());
         income.setPaidAt(getPaidAt());

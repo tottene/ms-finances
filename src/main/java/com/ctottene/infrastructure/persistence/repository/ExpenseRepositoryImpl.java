@@ -49,6 +49,10 @@ public class ExpenseRepositoryImpl implements ExpenseRepository {
         ExpenseEntity entity = new ExpenseEntity();
         entity.setId(expense.getId());
         entity.setAmount(expense.getAmount());
+        entity.setOriginalAmount(expense.getOriginalAmount());
+        entity.setInterest(expense.getInterest());
+        entity.setFine(expense.getFine());
+        entity.setDiscount(expense.getDiscount());
         entity.setDescription(expense.getDescription());
         entity.setOriginalDate(expense.getOriginalDate());
         entity.setDueDate(expense.getDueDate());

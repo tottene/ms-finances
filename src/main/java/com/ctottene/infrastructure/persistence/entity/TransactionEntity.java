@@ -26,6 +26,18 @@ public abstract class TransactionEntity extends AuditMetadataEntity {
     @Column(nullable = false)
     private BigDecimal amount;
 
+    @Column(name = "original_amount", nullable = false)
+    private BigDecimal originalAmount;
+
+    @Column(nullable = false)
+    private BigDecimal interest;
+
+    @Column(nullable = false)
+    private BigDecimal fine;
+
+    @Column(nullable = false)
+    private BigDecimal discount;
+
     @Column(name = "original_date", nullable = false)
     private Instant originalDate;
 
@@ -61,6 +73,38 @@ public abstract class TransactionEntity extends AuditMetadataEntity {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public BigDecimal getOriginalAmount() {
+        return originalAmount;
+    }
+
+    public void setOriginalAmount(BigDecimal originalAmount) {
+        this.originalAmount = originalAmount;
+    }
+
+    public BigDecimal getInterest() {
+        return interest;
+    }
+
+    public void setInterest(BigDecimal interest) {
+        this.interest = interest;
+    }
+
+    public BigDecimal getFine() {
+        return fine;
+    }
+
+    public void setFine(BigDecimal fine) {
+        this.fine = fine;
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
     }
 
     public Instant getOriginalDate() {

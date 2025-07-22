@@ -49,6 +49,10 @@ public class IncomeRepositoryImpl implements IncomeRepository {
         IncomeEntity entity = new IncomeEntity();
         entity.setId(income.getId());
         entity.setAmount(income.getAmount());
+        entity.setOriginalAmount(income.getOriginalAmount());
+        entity.setInterest(income.getInterest());
+        entity.setFine(income.getFine());
+        entity.setDiscount(income.getDiscount());
         entity.setDescription(income.getDescription());
         entity.setOriginalDate(income.getOriginalDate());
         entity.setDueDate(income.getDueDate());
